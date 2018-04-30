@@ -1,0 +1,97 @@
+Blazmass.java:    //private int iChargeState;
+Blazmass.java:    public List<PeptideResult.MatchedIon> getMatchedIonList(List<Float> masses, List<Float> intensities, String sequence, float precursorMass, int chargeState, String path) throws Exception {
+Blazmass.java:        double[] dPrecursorMasses = new double[chargeState];
+Blazmass.java:                    (precursorMass + (chargeState - 1) * sParam.getHparent()) / (double)(chargeState);
+Blazmass.java:            for (int ii = 0; ii < chargeState; ii++) {
+Blazmass.java:                            for (int ii = 0; ii < chargeState; ii++) {
+Blazmass.java:	//if (precursorMass < Constants.MAX_PRECURSOR_MASS && chargeState <= Constants.MAX_CHARGE_STATE) {
+Blazmass.java:			// int numMatched = runSearch(indexer, sParam, scoreArray, chargeState, precursorMass, scoreHistogram, pArr);
+Blazmass.java:			PeptideResult pr = calcScore(iSeq, scoreArray, chargeState, scoreHistogram, sParam, masses);
+Blazmass.java:				pr = calcModScore(iSeq, scoreArray, chargeState, scoreHistogram, modIndexHash, sParam, masses);                     
+Blazmass.java:            final List<Integer> chargeStates = scan.getChargeStates();
+Blazmass.java:            final int chargeStatesSize = chargeStates.size();
+Blazmass.java:            for (int chargeStateI = 0; chargeStateI < chargeStatesSize; ++chargeStateI) {
+Blazmass.java:                final int chargeState = chargeStates.get(chargeStateI);
+Blazmass.java:                final float precursorMass = precMasses.get(chargeStateI);                              
+Blazmass.java:                if(precursorMass<sParam.getMinPrecursorMass() || precursorMass>sParam.getMaxPrecursorMass() || chargeState > sParam.getMaxChargeState()) {
+Blazmass.java:                    //System.out.println("charge state: " + chargeState);
+Blazmass.java:                    //System.out.println("max charge state: " + sParam.getMaxChargeState());
+Blazmass.java:                float[] precursorMassArr = new float[chargeState];
+Blazmass.java:                int[] precursorMassBinIndexArr = new int[chargeState];
+Blazmass.java:                int numMatched = runSearchHigh(indexer, sParam, signalArray, backgroundArr, chargeState, precursorMass, pArr, masses);
+Blazmass.java:                //System.out.println("=========" + outputResult(indexer, hostname, dTotalIntensity, sParam, numMatched, chargeState, precursorMass, pArr).toString());
+Blazmass.java:                resultWriter.write(outputResult(indexer, hostname, dTotalIntensity, sParam, numMatched, chargeState, precursorMass, pArr).toString());
+Blazmass.java:            final List<Integer> chargeStates = scan.getChargeStates();
+Blazmass.java:            final int chargeStatesSize = chargeStates.size();
+Blazmass.java:            for (int chargeStateI = 0; chargeStateI < chargeStatesSize; ++chargeStateI) {
+Blazmass.java:                final int chargeState = chargeStates.get(chargeStateI);
+Blazmass.java:                final float precursorMass = precMasses.get(chargeStateI);                              
+Blazmass.java:                if(precursorMass<sParam.getMinPrecursorMass() || precursorMass>sParam.getMaxPrecursorMass() || chargeState > sParam.getMaxChargeState()) {
+Blazmass.java:                    //System.out.println("charge state: " + chargeState);
+Blazmass.java:                    //System.out.println("max charge state: " + sParam.getMaxChargeState());
+Blazmass.java:                double[] precursorMassArr = new double[chargeState];
+Blazmass.java:                        for (int ii = 0; ii < chargeState; ii++) {
+Blazmass.java:                int numMatched = runSearchHigh(indexer, sParam, scoreArray, chargeState, precursorMass, scoreHistogram, pArr, masses);
+Blazmass.java:                //System.out.println("=========" + outputResult(indexer, hostname, dTotalIntensity, sParam, numMatched, chargeState, precursorMass, pArr).toString());
+Blazmass.java:                resultWriter.write(outputResult(indexer, hostname, dTotalIntensity, sParam, numMatched, chargeState, precursorMass, pArr).toString());
+Blazmass.java:            final List<Integer> chargeStates = scan.getChargeStates();
+Blazmass.java:            final int chargeStatesSize = chargeStates.size();
+Blazmass.java:            //for (int chargeStateI = 0; chargeStateI < chargeStatesSize; ++chargeStateI) {
+Blazmass.java:            for(int cs=0;cs<chargeStatesSize;cs++) {
+Blazmass.java:                final int chargeState = chargeStates.get(cs);
+Blazmass.java:                if(precursorMass<sParam.getMinPrecursorMass() || precursorMass>sParam.getMaxPrecursorMass() || chargeState > sParam.getMaxChargeState()) {
+Blazmass.java:                    //System.out.println("charge state: " + chargeState);
+Blazmass.java:                    //System.out.println("max charge state: " + sParam.getMaxChargeState());
+Blazmass.java:                //System.out.println("==" + ((precursorMass + (chargeState - 1) * sParam.getHparent()) / (double)(chargeState)));
+Blazmass.java:                double[] dPrecursorMasses = new double[chargeState];
+Blazmass.java:                            (precursorMass + (chargeState - 1) * sParam.getHparent()) / (double)(chargeState);
+Blazmass.java:                    for (int ii = 0; ii < chargeState; ii++) {
+Blazmass.java:				    for (int ii = 0; ii < chargeState; ii++) {
+Blazmass.java:                //if (precursorMass < Constants.MAX_PRECURSOR_MASS && chargeState <= Constants.MAX_CHARGE_STATE) {
+Blazmass.java:                        int numMatched = runSearch(indexer, sParam, scoreArray, chargeState, precursorMass, scoreHistogram, pArr, masses);
+Blazmass.java:                        //System.out.println("=========" + outputResult(indexer, hostname, dTotalIntensity, sParam, numMatched, chargeState, precursorMass, pArr).toString());
+Blazmass.java:                        resultWriter.write(outputResult(indexer, hostname, dTotalIntensity, sParam, numMatched, chargeState, precursorMass, pArr).toString());
+Blazmass.java:                    if (chargeState < 1 || chargeState > Constants.MAX_CHARGE_STATE) {
+Blazmass.java:                        // " *** Charge = %d must be between 1 and %d\n\n",chargeState,
+Blazmass.java:                        logger.severe("Error: charge " + chargeState + " must be between 1 and " + Constants.MAX_CHARGE_STATE);
+Blazmass.java:            int liNumMatchedPeptides, int chargeState,
+Blazmass.java:                .append(chargeState).append("\t").append(MathUtil.round(searchTime)).append("\t")
+Blazmass.java:    private int runSearch(DBIndexer indexer, SearchParams sParam, float[] scoreArray, int chargeState, float precursorMass, int[] scoreHistogram,
+Blazmass.java:        int isotopeNum = chargeState * 2 + 1; //robin move it to config file later
+Blazmass.java:                PeptideResult pr = calcScore(iSeq, scoreArray, chargeState, scoreHistogram, sParam, masses);
+Blazmass.java:                            //PeptideResult pr = calcModScore(iSeq, precursorMass, scoreArray, chargeState, scoreHistogram, eachModGroup, modIndexHash, sParam);
+Blazmass.java:                            PeptideResult pr = calcModScore(iSeq, scoreArray, chargeState, scoreHistogram, modIndexHash, sParam, masses);                     
+Blazmass.java:    private int runSearchHigh(DBIndexer indexer, SearchParams sParam, float[] signalArr, float[] backgroundArr, int chargeState, float precursorMass, PeptideResult[] pArr, List<Float> masses) throws Exception {
+Blazmass.java:       int isotopeNum = chargeState * 2 + 1; //robin move it to config file later
+Blazmass.java:                PeptideResult pr = calcScoreHigh(iSeq, signalArr, backgroundArr, chargeState, sParam, masses, theoNonZeroInd);
+Blazmass.java:                            //PeptideResult pr = calcModScore(iSeq, precursorMass, scoreArray, chargeState, scoreHistogram, eachModGroup, modIndexHash, sParam);
+Blazmass.java:                            PeptideResult pr = calcModScoreHigh(iSeq, signalArr, backgroundArr, chargeState, modIndexHash, sParam, masses, theoNonZeroInd);                     
+Blazmass.java:    private PeptideResult calcScore(IndexedSequence iSeq, float[] scoreArray, int chargeState, int[] scoreHistogram, SearchParams sParam, List<Float> masses) {
+Blazmass.java:        return calcEachIon(l, scoreArray, chargeState, scoreHistogram, iSeq, sParam, masses);
+Blazmass.java:    private PeptideResult calcScoreHigh(IndexedSequence iSeq, float[] signalArr, float[] backgroundArr, int chargeState, SearchParams sParam, List<Float> masses, Set<Integer> theoNonZeroInd) {
+Blazmass.java:            if(chargeState>=CS_FRAG) {           
+Blazmass.java:                             if(chargeState>=CS_FRAG)  {
+Blazmass.java:                             if(chargeState>=CS_FRAG) {
+Blazmass.java:                             if(chargeState>=CS_FRAG) {
+Blazmass.java:        return calcEachIonHigh(theorArr, signalArr, backgroundArr, chargeState, iSeq, sParam, masses, theoNonZeroInd);      
+Blazmass.java:            int chargeState,
+Blazmass.java:        return calcEachIon(l, scoreArray, chargeState, scoreHistogram, newISeq, sParam, masses);
+Blazmass.java:            int chargeState,
+Blazmass.java:            if(chargeState>=CS_FRAG) {           
+Blazmass.java:                             if(chargeState>=CS_FRAG)  {
+Blazmass.java:                             if(chargeState>=CS_FRAG) {
+Blazmass.java:                             if(chargeState>=CS_FRAG) {
+Blazmass.java:        return calcEachIonHigh(theorArr, signalArr, backgroundArr, chargeState, newISeq, sParam, masses, theoNonZeroInd);
+Blazmass.java:            int chargeState,
+Blazmass.java:        return calcEachIonHigh(l, null, signalArr, backgroundArr, chargeState, newISeq, sParam, masses);
+Blazmass.java:    private PeptideResult calcEachIonHigh(int[] theorArr, float[] signalArr, float[] backgroundArr, int chargeState, IndexedSequence iSeq, SearchParams sParam, List<Float> masses, Set<Integer> theoNonZeroInd) {
+Blazmass.java:        if (chargeState > 2) {
+Blazmass.java:    private PeptideResult calcEachIonTested(List<FragIonModel> l, float[] scoreArray, int chargeState, int[] scoreHistogram, IndexedSequence iSeq, SearchParams sParam, List<Float> masses) {
+Blazmass.java:                if (chargeState > 2) {
+Blazmass.java:        if (chargeState > 2) {
+Blazmass.java:    private PeptideResult calcEachIon(List<FragIonModel> l, float[] scoreArray, int chargeState, int[] scoreHistogram, IndexedSequence iSeq, SearchParams sParam, List<Float> masses) {
+Blazmass.java:                if (chargeState > 2) {
+Blazmass.java:        if (chargeState > 2) {
+Blazmass.java:     double dPeptideMassTolerance2, double expPepMass, int chargeState) {
+Blazmass.java:     for (i = 0; i < chargeState * 2 + 1; ++i) {
+Test.java://    public List<Float> getMatchedIonList(String sequence, float precursorMass, int chargeState, String path) throws Exception {

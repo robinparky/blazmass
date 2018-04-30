@@ -1,0 +1,50 @@
+./blazmass/io/FastaReader.java:        HashSet<String> accessions = new HashSet<String>(1000000);
+./blazmass/io/FastaReader.java:        HashSet<String> sequestLikeAccs = new HashSet<String>(1000000);
+./blazmass/io/SearchParams.java:        this.fragmentIonToleranceBinScale = 1000.0f/fragmentIonTolerance;
+./blazmass/io/SearchParamReader.java:        param.setRelativePeptideMassTolerance( (float)sp.getPrecursorTolerance()/1000f);
+./blazmass/io/SearchParamReader.java:                param.setRelativePeptideMassTolerance(trimValueAsFloat(ppmMassTol)/1000f);
+./blazmass/util/IsotopeCalc.java:        isotopicDistribution[16][14] = 0.010006;
+./blazmass/Constants.java:    public static final float H2O_PROTON_SCALED_DOWN = H2O_PROTON*1000;
+./blazmass/HighResMassProcessor.java:        mass *= 1000;
+./blazmass/HighResMassProcessor.java:        double convertFactor = sParam.getFragmentIonTolerance()/1000000;
+./blazmass/HighResMassProcessor.java:        mappingArr = new int[(int)endMass*1000];
+./blazmass/HighResMassProcessor.java:        int startInt = (int)((startRange+0.0005)*1000);
+./blazmass/HighResMassProcessor.java:        int endInt = (int)((endRange+0.0005)*1000);
+./blazmass/HighResMassProcessor.java:            endInt = (int)((endRange+0.0005)*1000);
+./blazmass/HighResMassProcessor.java:        System.out.println(mappingArr[310009]);
+./blazmass/HighResMassProcessor.java:        for(int i=310009;i<(6000000-7000);i++)
+./blazmass/dbindex/DBIndexStoreSQLiteMult.java:        if (totalSeqCount % 1000000 == 0) {
+./blazmass/dbindex/DBIndexStoreSQLiteMult.java:            for (int i = 0; i < 1000; ++i) {
+./blazmass/dbindex/DBIndexStoreSQLiteMult.java:            List<IndexedSequence> res = store.getSequences(1000, 3000);
+./blazmass/dbindex/DBIndexStoreSQLiteMult.java:        private static final int FULL_CACHE_COMMIT_INTERVAL = (100 * 1000 * 1000) / NUM_BUCKETS;
+./blazmass/dbindex/DBIndexStoreFiles.java:        if (this.indexed % 10000000 == 0) {
+./blazmass/dbindex/DBIndexStoreFiles.java:            for (int i = 0; i < 1000; ++i) {
+./blazmass/dbindex/DBIndexStoreFiles.java:            List<IndexedSequence> res = store.getSequences(1000, 3000);
+./blazmass/dbindex/DBIndexStoreMongoDb.java:    private long counter=1,maxBufferLimit=100000;
+./blazmass/dbindex/DBIndexStoreMongoDb.java:        if (indexed % 1000 == 0) {
+./blazmass/dbindex/DBIndexStoreMongoDb.java:        int mass = (int)(precMass*1000 + 0.5);
+./blazmass/dbindex/DBIndexStoreMongoDb.java://            int bucket = (int) precMass / 1000;
+./blazmass/dbindex/DBIndexStoreMongoDb.java:            float minMass = massInterval.getStart()*1000;
+./blazmass/dbindex/DBIndexStoreMongoDb.java:            float maxMass = massInterval.getEnd()*1000;
+./blazmass/dbindex/DBIndexStoreMongoDb.java:            for (int i = 0; i < 1000; ++i) {
+./blazmass/dbindex/DBIndexStoreMongoDb.java:            List<IndexedSequence> res = store.getSequences(1000, 3000);
+./blazmass/dbindex/DBIndexStoreMongoDb.java:                float massF = Float.parseFloat(currentCursor.get("MASS").toString())/1000;
+./blazmass/dbindex/DBIndexStoreLucene.java:        if (indexed % 1000000 == 0) {
+./blazmass/dbindex/DBIndexStoreLucene.java:            for (int i = 0; i < 1000; ++i) {
+./blazmass/dbindex/DBIndexStoreLucene.java:            List<IndexedSequence> res = store.getSequences(1000, 3000);
+./blazmass/dbindex/DBIndexStoreSQLiteAbstract.java:    protected static final long MASS_STORE_MULT = 10 * 1000 * 1000L; //store long, not floats
+./blazmass/dbindex/DBIndexStoreSQLiteAbstract.java:            final int cacheSize = 100000 / indexFactor;
+./blazmass/dbindex/DBIndexStoreSQLiteAbstract.java:                config.setCacheSize(10000 / sparam.getIndexFactor() );
+./blazmass/dbindex/DBIndexStoreSQLiteAbstract.java:                config.setMaxPageCount(10 * 1000 * 1000 * 1000 / pageSize);
+./blazmass/dbindex/DBIndexer.java:    private static final int MAX_SEQ_LENGTH = 10000;
+./blazmass/AssignMass.java:            isotopicDistribution[16][14] = 0.010006;
+./blazmass/WorkerManager.java:            static final int MONITOR_STATS_INTERVAL = 5 * 1000;
+./blazmass/WorkerManager.java:    private static final int MAX_SCANS = 1000;
+./blazmass/Blazmass.java://pbs_submit_blazmass 1000 blazmass_search /data/2/rpark/ip2_data/rpark/test4/worm_single_cloud_test_2010_10_06_23_2153/search/sequest2010_10_07_22_6237 rpark ip2 goldfish.scripps.edu
+./blazmass/Blazmass.java:        //double xcorr = (0.993377483f*sumProduct - moreSumProduct/151)/10000;
+./blazmass/Blazmass.java:        float xcorr = (0.993377483f*signalProduct - backProduct/151)/10000;
+./blazmass/Blazmass.java:        dTmpXCorr = dTmpXCorr / 100000;
+./blazmass/Blazmass.java:        //dTmpXCorrReverse = dTmpXCorrReverse / 100000.0;
+./blazmass/Blazmass.java:        dTmpXCorr = dTmpXCorr / 100000;
+./blazmass/Blazmass.java:        //dTmpXCorrReverse = dTmpXCorrReverse / 100000.0;
+./blazmass/Blazmass.java:        float ppm = tolerance/1000;

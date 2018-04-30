@@ -1,0 +1,134 @@
+19,50d18
+<     
+<     public static void assignTheoMass(int[] theorArr, float mass, SearchParams sparam, int cs, HighResMassProcessor hprocess, int value) {
+<               
+<         if(mass<=0) return;
+<      
+<         int index = hprocess.getBinIndex(mass, sparam);                        
+< 	if(index<=0) return;
+< 
+<         theorArr[index] = value;
+< /*
+<     }        
+< 
+<         if(theorArr[index-1] < minValue) {
+<             theorArr[index-1] = minValue;
+<         }        
+<         if(theorArr[index+1] < minValue) {
+<             theorArr[index+1] = minValue;
+<         }    
+<         
+<         
+<         
+<         int index = (int)(mass);
+<         //if(index==243)
+<         //System.out.println("==>>" + mass + " " + index + " " + theorMass[index] + " " + minValue);
+<         if(theorMass[index] < minValue) {
+<             theorMass[index] = minValue;
+<         }
+<         
+<         */
+<         
+<     }
+<         
+53,57d20
+<         
+<     //    if((int)mass == 158) 
+< //	if(averagineIndex==1)
+<  //       System.out.println("===mass\t" + mass/cs + " " + (mass + Constants.MADD_DIFF_C12C13)/cs);
+<         
+165,167d127
+<         for(float mass:fragArr)
+<             assignTheoMass(theorArr, mass, sparam, cs, hprocess);             
+<     }
+169d128
+<     public static void assignTheoMass(int[] theorArr, float[] fragArr, SearchParams sparam, int cs, HighResMassProcessor hprocess, int value) {
+171c130,131
+<             assignTheoMass(theorArr, mass, sparam, cs, hprocess, value);             
+---
+>             assignTheoMass(theorArr, mass, sparam, cs, hprocess);            
+>  
+177,179d136
+< 	if(mass<=0) return;
+<      
+<         
+181,183d137
+<      
+< 
+< 	if(index<=0) return;
+187,193c141
+<         }        
+< 
+<         if(theorArr[index-1] < minValue) {
+<             theorArr[index-1] = minValue;
+<         }        
+<         if(theorArr[index+1] < minValue) {
+<             theorArr[index+1] = minValue;
+---
+>             
+210,227d157
+< /*
+<         try {
+< 
+< 	    int a = mappingArr[massIndex];
+<             if(massIndex<=0 || mass<=0)  {
+< System.out.println("error" + mass + " " + massIndex);
+<                 new Exception();
+< }
+<         } catch(Exception e) {
+<             e.printStackTrace();
+< 
+< System.out.println("exit" + mass + " " + massIndex + " "  + mappingArr.length);
+<             System.exit(0);
+<         }
+<          
+<        */ 
+<         
+<         
+230,242d159
+<         /*
+<         if(binIndex==82073) {
+<             System.out.println("aaaaaaaaaaaaaaaaaaaaaa");
+<             try {
+<                 Double.parseDouble(null);
+<                 
+<             } catch (Exception e) {
+<                 e.printStackTrace();
+<                 System.exit(0);
+<             }
+<         }*/
+<             
+<         
+251,252c168,169
+<         double startMass=50;
+<         double endMass = 3000;
+---
+>         double startMass=200;
+>         double endMass = 6000;
+278a196,199
+>     //    System.out.println( getBinIndex(1609.8186f, sParam) );
+>     //    System.out.println( getBinIndex(1612.8186f, sParam) );
+>         
+>         
+295,315d215
+<     public String printMappingRange(int index) {
+<         String indexValue="";
+<         for(int i=0;i<this.mappingArr.length;i++) {
+<             if( this.mappingArr[i] == index ) {
+<                 indexValue += i;
+<              
+<                 for(int j=i+1;j<this.mappingArr.length;j++) {
+<                     if(mappingArr[j] != index) {
+<                         indexValue += "\t" + (j-1);
+<                         
+<                         return indexValue;
+<                     }
+<                     
+<                 }
+<                     
+<                    
+<             }
+<                 
+<         }
+<         return null;
+<     }

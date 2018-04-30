@@ -1,0 +1,465 @@
+441,445d440
+< 
+<                     //System.out.println("each scan................." + scan.getScanType());
+<                     if("HCD".equals(scan.getScanType()))
+<                         scan.processHCDScan();
+<                     
+476d470
+< 
+481c475
+<             scan2 = scan.getIsScan2();            
+---
+>             scan2 = scan.getIsScan2();
+540a535
+>                     //System.out.println("====\t" + mass + " " + intensity); // + " " + FLOAT_ZERO);
+582,584c577,579
+<                 for(int ii=0;ii<backgroundArr.length;ii++)
+<                     if(signalArray[ii]<=0) continue;
+<             //        else System.out.println(this.hprocessor.printMappingRange(ii)  + " " + ii + " " + signalArray[ii] + " " + backgroundArr[ii]);
+---
+>                 //for(int ii=0;ii<backgroundArr.length;ii++)
+>                 //    if(signalArray[ii]<=0) continue;
+>                 //    else System.out.println(signalArray[ii] + " " + backgroundArr[ii]);
+600c595
+<                // System.exit(0);
+---
+>                 System.exit(0);
+871a867
+>                    //System.out.print("===" + iBinIon + " " + fIntensity + " ===" );
+872a869
+> //                          System.out.println("===" + fIntensity);
+1256a1254,1255
+>         //System.out.println("===" + massTolerance);
+>         
+1578,1589d1576
+< /*
+< for(float f:fragArr) {
+< if(f<=0) {
+< 		System.out.println("==============" + each+ " "  +pepSeq);
+< 
+< 	for(int i=0;i<fragArr.length;i++) 
+< 		System.out.println(fragArr[i]);
+< 
+< System.exit(0);
+< }
+< 
+< }*/
+1591,1593c1578,1579
+<             if(chargeState>=2) {           
+<                 //HighResMassProcessor.assignTheoMass(theorArr, fragArr, sParam, 2, this.hprocessor, 10);       
+<                 HighResMassProcessor.assignTheoMass(theorArr, fragArr, sParam, 2, this.hprocessor);
+---
+>             if(chargeState>=2) {            
+>                 HighResMassProcessor.assignTheoMass(theorArr, fragArr, sParam, 2, this.hprocessor);       
+1599d1584
+< 
+1606,1608d1590
+<                              //HighResMassProcessor.assignTheoMass(theorArr, f-AssignMass.NH3, sParam, 1, this.hprocessor, 10);
+<                              //if(chargeState>=2) 
+<                              //    HighResMassProcessor.assignTheoMass(theorArr, f-AssignMass.NH3, sParam, 2, this.hprocessor, 10);
+1620,1621d1601
+<                              
+<                         //     System.out.println("----------" + f + " " + (f-AssignMass.NH3));
+1628c1608
+<                                  HighResMassProcessor.assignTheoMass(theorArr, f-AssignMass.H2O, sParam, 2, this.hprocessor);                                 
+---
+>                                  HighResMassProcessor.assignTheoMass(theorArr, f-AssignMass.H2O, sParam, 2, this.hprocessor);
+1629a1610
+> 
+1631,1641d1611
+< /*
+<                              HighResMassProcessor.assignTheoMass(theorArr, f-AssignMass.NH3, sParam, 1, this.hprocessor, 10);
+<                              HighResMassProcessor.assignTheoMass(theorArr, f-AssignMass.H2O, sParam, 1, this.hprocessor, 10);
+<                              HighResMassProcessor.assignTheoMass(theorArr, f-AssignMass.CO, sParam, 1, this.hprocessor, 10);
+<                              
+<                              if(chargeState>=2) {
+<                                  HighResMassProcessor.assignTheoMass(theorArr, f-AssignMass.NH3, sParam, 2, this.hprocessor, 10);
+<                                  HighResMassProcessor.assignTheoMass(theorArr, f-AssignMass.H2O, sParam, 2, this.hprocessor, 10);                                 
+<                                  HighResMassProcessor.assignTheoMass(theorArr, f-AssignMass.CO, sParam, 2, this.hprocessor, 10);
+<                              }
+< */
+1665,1669d1634
+<                              //HighResMassProcessor.assignTheoMass(theorArr, f-AssignMass.NH3, sParam, 1, this.hprocessor, 10);
+<                              
+<                              //if(chargeState>=2) {
+<                              //   HighResMassProcessor.assignTheoMass(theorArr, f-AssignMass.NH3, sParam, 2, this.hprocessor, 10);
+<                              //}
+1684c1649
+< /*
+---
+> 
+1686,1691c1651,1653
+<         for(int i=0;i<theorArr.length;i++)
+<             if(theorArr[i]>0) {
+<                 
+<                 System.out.println(i + "\t" + theorArr[i] + "\t" + this.hprocessor.printMappingRange(i));
+<             }
+<         */
+---
+>       //  for(int i=0;i<theorArr.length;i++)
+>             //if(theorArr[i]>0)
+>       //      System.out.println(i + "\t" + i/sParam.getFragmentIonToleranceBinScale() + "\t" + theorArr[i]);
+1855,1856c1817
+<                 
+<         //K.AAMTEGDAVITAYR.C
+---
+>         float dTmpXCorr = 0;
+1858c1819
+<         //System.out.println("Robin delete this line.....###########################################");
+---
+>         System.out.println("Robin delete this line.....###########################################");
+1860c1821
+<      //   if(!iSeq.getSequence().equals("YLGAYLLATLGGNASPSAQDVLK")) return null;
+---
+>         if(!iSeq.getSequence().equals("YLGAYLLATLGGNASPSAQDVLK")) return null;
+1870,1873c1831,1835
+<         float signalProduct = 0.0f;
+<         float backProduct = 0.0f; 
+<         for(int i=0;i<theorArr.length;i++) {
+<             if(theorArr[i]<=0 || signalArr[i]<=0) continue;
+---
+>         double signalProduct = 0;
+>         double backProduct = 0; 
+>         double newMoreSumProduct = 0; 
+>         for(int i:theorArr) {
+>             if(theorArr[i]<=0) continue;
+1876c1838
+<             
+---
+>             System.out.println(theorArr[i] + " " + signalArr[i]);
+1881,1883c1843
+<             backProduct += theorArr[i]*backgroundArr[i]; //massSum[mass]*intensity;
+<             
+< //            System.out.println("===" + theorArr[i] + " " + signalArr[i] + " " + backgroundArr[i] + " " + this.hprocessor.printMappingRange(i));
+---
+>             newMoreSumProduct += theorArr[i]*backgroundArr[i]; //massSum[mass]*intensity;
+1888c1848
+<         float xcorr = (0.993377483f*signalProduct - backProduct/151)/10000;
+---
+>         double xcorr = (0.993377483f*signalProduct - newMoreSumProduct/151)/10000;
+1891c1851,1873
+< //        System.out.println(xcorr);
+---
+>         System.out.println(xcorr);
+> 
+>  
+>        // s.setXCorr(xcorr);
+>         
+>         
+>         /*
+>         
+>         System.out.println("aaaaaaaaaexit exit............");
+>         System.exit(0);
+>         
+>         for (Iterator<FragIonModel> itr = l.iterator(); itr.hasNext();) {
+> 
+>             final FragIonModel fmodel = itr.next();
+>             //System.out.println("==" + fmodel);
+>             int ionValue = fmodel.getWeight();
+>             int ion = fmodel.getIon();
+>             
+>             //TODO profile more to see if benefit from this cache
+>             IonIntensities ionIntensities = ionIntensitiesCache.get(ionValue);
+>             int tolBig = ionIntensities.big;
+>             int tolMed = ionIntensities.medium;
+>             int tolSma = ionIntensities.small;
+1892a1875,2099
+>             final float[] fragArr = fmodel.getFragArr();            
+>             //for (float eachIon : fragArr) {
+>             for(int i=0;i<fragArr.length;i++) {
+>                 float eachIon = fragArr[i];
+>                 int ionNum;
+>                     
+>                 if(fmodel.isForwardIon()) ionNum = i+1;
+>                 else ionNum = fragArr.length-i;
+> 
+>                 
+>                 if((int)eachIon!=245) continue;
+>                 
+>                 int massIndex = (int)(eachIon*sParam.getFragmentIonToleranceBinScale());
+>                 
+> //                System.out.println("1==\t" + eachIon + " "  + massIndex + " " + iLowestPeak);
+>                 
+>                 if(massIndex<iLowestPeak) continue;
+>   //              System.out.println("2==\t" + eachIon);
+> 
+>                 
+>                 if (massIndex < iHighestPeak) {
+> 
+>     //                System.out.println("3==\t" + eachIon);
+>                     
+>                     if (corr[massIndex] < tolBig) {                       
+>                         if(signalArr[massIndex]>0) 
+>                             pepResult.addMatchedIon(fmodel.getIonStr()+ionNum, eachIon);                            
+>                         
+>                         dTmpXCorr += (tolBig - corr[massIndex]) * signalArr[massIndex];
+>                         corr[massIndex] = tolBig;
+>                     }
+> 
+> 
+>                     System.out.println("----------------" + eachIon + " " + corr[massIndex]);
+> 
+> 
+>                     final int nextIon = (int)( (eachIon+Constants.MADD_DIFF_C12C13)*sParam.getFragmentIonToleranceBinScale() );
+> 
+>                     if (corr[nextIon] < tolMed) { 
+>                               
+>                         if(signalArr[nextIon]>0) 
+>                             pepResult.addMatchedIon(fmodel.getIonStr()+ionNum, eachIon+Constants.MADD_DIFF_C12C13);                            
+>                         
+>                         dTmpXCorr += (tolMed - corr[nextIon]) * signalArr[nextIon];
+>                         corr[nextIon] = tolMed; 
+>                         
+>                     }
+>                     System.out.println("----------------" + eachIon + " " + corr[nextIon]);
+>                     //System.exit(0);
+> 
+>                     //Put in neutral losses                   
+>                     if (ion == 0 && sParam.getNeutralLossAions() > 0) { //a ion
+>                     
+>                         final int neutralIntIon = (int)((eachIon - AssignMass.NH3)*sParam.getFragmentIonToleranceBinScale());
+> 
+>                         if (corr[neutralIntIon] < tolSma) {
+>                             
+>                             if(signalArr[neutralIntIon]>0) 
+>                                 pepResult.addMatchedIon(fmodel.getIonStr()+ionNum+"-NH3", (eachIon-AssignMass.NH3));                            
+>                             
+>                             dTmpXCorr += (tolSma - corr[neutralIntIon]) * signalArr[neutralIntIon];
+>                             corr[neutralIntIon] = tolSma; 
+>                             
+>                             // * a-NH3
+>                         }
+>                     } else if (ion == 1 && sParam.getNeutralLossBions() > 0) { //b ion
+>                          
+>                         final int neutralIntIon = (int)((eachIon - AssignMass.NH3)*sParam.getFragmentIonToleranceBinScale());
+> 
+>                         if (corr[neutralIntIon] < tolSma) {
+>                             
+>                             if(signalArr[neutralIntIon]>0) 
+>                                 pepResult.addMatchedIon(fmodel.getIonStr()+ionNum+"-NH3", (eachIon-AssignMass.NH3));                                                        
+>                             dTmpXCorr += (tolSma - corr[neutralIntIon]) * signalArr[neutralIntIon];
+>                             corr[neutralIntIon] = tolSma;                                                        
+>                             // * b-NH3
+>                         }
+>                                           
+>                         final int h2oIntIon = (int)((eachIon - AssignMass.H2O)*sParam.getFragmentIonToleranceBinScale());
+>                         
+>                         if (corr[h2oIntIon] < tolSma) {
+>                                                                                     
+>                             if(signalArr[h2oIntIon]>0)
+>                                 pepResult.addMatchedIon(fmodel.getIonStr() +ionNum+ "-H2O", (eachIon-AssignMass.H2O));
+>                             
+>                             dTmpXCorr += (tolSma - corr[h2oIntIon]) * signalArr[h2oIntIon];
+>                             corr[h2oIntIon] = tolSma;                                                    
+>                         }
+>                                                 
+>                         final int coIntIon = (int)((eachIon - AssignMass.CO)*sParam.getFragmentIonToleranceBinScale());
+>                         
+>                         if (corr[coIntIon] < tolSma) {                    
+>                             
+>                             if(signalArr[coIntIon]>0) 
+>                                 pepResult.addMatchedIon(fmodel.getIonStr() +ionNum+ "-CO", (eachIon-AssignMass.CO));
+>                             
+>                             dTmpXCorr += (tolSma - corr[coIntIon]) * signalArr[coIntIon];
+>                             corr[coIntIon] = tolSma;                             
+>                         }                        
+> 
+>                     } else if (ion == 7 && sParam.getNeutralLossYions() > 0 ) { //y ion
+>                         
+>                         final int yNeutralIon = (int)((eachIon - AssignMass.NH3)*sParam.getFragmentIonToleranceBinScale());
+>                         
+>                         if (corr[yNeutralIon] < tolSma) {
+>                      
+>                             
+>                             if(signalArr[yNeutralIon]>0) 
+>                                 pepResult.addMatchedIon(fmodel.getIonStr() +ionNum+ "-NH3", (eachIon-AssignMass.NH3));
+>                         
+>                             dTmpXCorr += (tolSma - corr[yNeutralIon]) * signalArr[yNeutralIon];
+>                             corr[yNeutralIon] = tolSma;                            
+>                         }
+>                         
+>                     }
+>                 }
+>           
+>                 if (chargeState > 2) {             
+>                     eachIon = (eachIon + AssignMass.getH()) / 2;
+>                     massIndex = (int)(eachIon*sParam.getFragmentIonToleranceBinScale());
+>                     //int start2 = eachIntIon - sParam.getFragmentIonToleranceInt();
+>                     //int end2 =  eachIntIon + sParam.getFragmentIonToleranceInt();
+>                 
+>                     if (massIndex < iHighestPeak) {
+>                         if (corr[massIndex] < tolBig) { 
+>                
+>                             if(signalArr[massIndex]>0) 
+>                                 pepResult.addMatchedIon(fmodel.getIonStr()+ionNum+"_2", eachIon);    
+>                             
+>                             dTmpXCorr += (tolBig - corr[massIndex]) * signalArr[massIndex];
+>                             corr[massIndex] = tolBig;
+>                         }
+> 
+>                         final int nextIon = (int)((eachIon + Constants.MADD_DIFF_C12C13)*sParam.getFragmentIonToleranceBinScale());                  
+>                         
+>                         if (corr[nextIon] < tolMed) { 
+>                             if(signalArr[nextIon]>0) 
+>                                 pepResult.addMatchedIon(fmodel.getIonStr()+ionNum, eachIon+Constants.MADD_DIFF_C12C13);                            
+>                             
+>                             dTmpXCorr += (tolMed - corr[nextIon]) * signalArr[nextIon];
+>                             corr[nextIon] = tolMed;                            
+>                         }
+> 
+>                         if (ion == 0 && sParam.getNeutralLossAions() > 0) {
+>                             
+>                             final int neutralIntIon = (int)((eachIon-AssignMass.NH3_CS2)*sParam.getFragmentIonToleranceBinScale());
+>                             if (corr[neutralIntIon] < tolSma) {
+> 
+>                                 if(signalArr[neutralIntIon]>0) 
+>                                     pepResult.addMatchedIon(fmodel.getIonStr()+ionNum+"-NH3_CS2", (eachIon-AssignMass.NH3_CS2));
+>                                 
+>                                 dTmpXCorr += (tolSma - corr[neutralIntIon]) * signalArr[neutralIntIon];
+>                                 corr[neutralIntIon] = tolSma;                                
+>                                 // * a-NH3
+>                             }                        
+> 
+>                         } else if (ion == 1 && sParam.getNeutralLossBions() > 0) {
+>                             final int neutralIntIon = (int)((eachIon - AssignMass.NH3_CS2)*sParam.getFragmentIonToleranceBinScale());
+> 
+>                             if (corr[neutralIntIon] < tolSma) {
+> 
+>                                 if(signalArr[neutralIntIon]>0) 
+>                                     pepResult.addMatchedIon(fmodel.getIonStr()+ionNum+"-NH3_CS2", (eachIon-AssignMass.NH3_CS2));
+> 
+>                                 dTmpXCorr += (tolSma - corr[neutralIntIon]) * signalArr[neutralIntIon];
+>                                 corr[neutralIntIon] = tolSma;
+>                                 // * b-NH3
+>                             }
+> 
+>                             final int h2oIntIon = (int)((eachIon - AssignMass.H2O_CS2)*sParam.getFragmentIonToleranceBinScale());                        
+>                             if (corr[h2oIntIon] < tolSma) {
+> 
+>                                 if(signalArr[h2oIntIon]>0)
+>                                     pepResult.addMatchedIon(fmodel.getIonStr() +ionNum+ "-H2O_CS2", (eachIon-AssignMass.H2O_CS2));
+>                                 
+>                                 dTmpXCorr += (tolSma - corr[h2oIntIon]) * signalArr[h2oIntIon];
+>                                 corr[h2oIntIon] = tolSma; 
+>                             }
+> 
+>                             final int coIntIon = (int)((eachIon - AssignMass.CO_CS2)*sParam.getFragmentIonToleranceBinScale());
+>                         
+>                             if (corr[coIntIon] < tolSma) {                               
+>                                 if(signalArr[coIntIon]>0) 
+>                                     pepResult.addMatchedIon(fmodel.getIonStr() +ionNum+ "-CO_CS2", (eachIon-AssignMass.CO_CS2));
+>                                 
+>                                 dTmpXCorr += (tolSma - corr[coIntIon]) * signalArr[coIntIon];
+>                                 corr[coIntIon] = tolSma; 
+>                             }  
+>                                           
+>                         } else if (ion == 7 && sParam.getNeutralLossYions() > 0) {
+> 
+>                             final int yNeutralIon = (int)((eachIon - AssignMass.NH3_CS2)*sParam.getFragmentIonToleranceBinScale());
+>                         
+>                             if (corr[yNeutralIon] < tolSma) {
+> 
+>                                 if(signalArr[yNeutralIon]>0)
+>                                     pepResult.addMatchedIon(fmodel.getIonStr() +ionNum+ "-NH3_CS2", (eachIon-AssignMass.NH3_CS2));
+>                         
+>                                 dTmpXCorr += (tolSma - corr[yNeutralIon]) * signalArr[yNeutralIon];
+>                                 corr[yNeutralIon] = tolSma;
+>                             }                                                                                   
+>                                 //y-NH3
+>                         }
+>                     }           
+>                 }
+> 
+>             } //end for each ion
+>         } //end for each fragionmodel
+>         
+>                        
+>                 
+>                 //System.out.println("massInde------" + eachIon + " " + massIndex);
+>                     
+>                 
+>         dTmpXCorr = dTmpXCorr / 100000;
+>         dXCorr_Mean += dTmpXCorr;
+>         //dXCorr_Square_Sum += (dTmpXCorr * dTmpXCorr + dTmpXCorrReverse * dTmpXCorrReverse);
+>         dXCorr_Square_Sum += dTmpXCorr * dTmpXCorr; // + dTmpXCorrReverse * dTmpXCorrReverse);
+>         int k = (int) (dTmpXCorr * 10.0 + 50.0);
+>         scoreHistogram[k]++; //TODO java.lang.ArrayIndexOutOfBoundsException
+>         // boolean bFoundDiff = false;
+>         boolean isDecoy = false;
+> 
+>         //if (dTmpXCorr >= dLowestXCorr) {
+>             //logger.info(iIsDecoy);
+1898,1899c2105,2108
+<         //pepResult.setIon(7);  //robin why this is 7?
+<       //  pepResult.setIsDecoy(isDecoy);
+---
+> 
+> 
+>         pepResult.setIon(7);  //robin why this is 7?
+>         pepResult.setIsDecoy(isDecoy);
+1905a2115,2118
+> 
+>         if(dTmpXCorr<0) {
+>             dTmpXCorr=0;
+>         }
+1907c2120
+<         pepResult.setxCorr(xcorr);
+---
+>         pepResult.setxCorr(dTmpXCorr);
+1909c2122
+< 
+---
+>         */
+1913c2126
+<    /* 
+---
+>     
+1935a2149,2153
+>   /*          
+>             int tolBig = ionValue * 50;
+>             int tolMed = ionValue * 25;
+>             int tolSma = ionValue * 10;
+> */
+1997a2216
+>                         //System.out.println("aaaaaaaaaaaaaaaaaa");                        
+2053a2273,2291
+>                         /*
+>                         eachIntIon = AssignMass.getBinnedValue(eachIon, -AssignMass.H2O);
+>                         if (iCorrel[eachIntIon] < tolSma) {
+>                             if(scoreArray[eachIntIon]>0)
+>                                 pepResult.addMatchedIon(fmodel.getIonStr() +ionNum+ "-H2O", eachIon-AssignMass.H2O);
+>                         
+>                             dTmpXCorr += (tolSma - iCorrel[eachIntIon]) * scoreArray[eachIntIon];
+>                             iCorrel[eachIntIon] = tolSma;
+>                             
+>                         }
+>                         
+>                         eachIntIon = AssignMass.getBinnedValue(eachIon, -AssignMass.CO);
+>                         if (iCorrel[eachIntIon] < tolSma) {
+>                             if(scoreArray[eachIntIon]>0)
+>                                 pepResult.addMatchedIon(fmodel.getIonStr() +ionNum+ "-CO", eachIon-AssignMass.CO);
+>                         
+>                             dTmpXCorr += (tolSma - iCorrel[eachIntIon]) * scoreArray[eachIntIon];
+>                             iCorrel[eachIntIon] = tolSma;
+>                         }     */                   
+2073a2312,2321
+> /*                      
+>                         final int prevIon = eachIntIon - 1;
+>                         if (iCorrel[prevIon] < tolMed) {
+>                             if(scoreArray[eachIntIon]>0)
+>                                 pepResult.addMatchedIon(fmodel.getIonStr()+ionNum, eachIon);
+>                         
+>                             dTmpXCorr += (tolMed - iCorrel[prevIon]) * scoreArray[prevIon];
+>                             iCorrel[prevIon] = tolMed;
+>                         }
+> */
+2171c2419
+<                             } 
+---
+>                             } */           
+2222c2470
+< */
+---
+> 
+2326a2575
+>                         //System.out.println("aaaaaaaaaaaaaaaaaa");                        
